@@ -27,4 +27,4 @@ When running this application, the user must specify an id to lookup in the ENA 
 
 # Write-up
 Since the purpose of this repo is for technical assessment, here is a link to a doc containing the original questions, my answers to those questions, as well as other considerations I would have to extend the functionality of this little application I've built
-https://docs.google.com/document/d/1gp2v_Q8wr1BJUd8deZwkFYJZcZCUIU1CfU3vwoBf6t8/edit#heading=h.eh36jqi60cu7
+https://docs.google.com/document/d/1gp2v_Q8wr1BJUd8deZwkFYJZcZCUIU1CfU3vwoBf6t8/edit?usp=sharing
