@@ -3,6 +3,8 @@ package com.pablolam.service;
 import com.pablolam.model.MetadataResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -37,6 +39,15 @@ public class ENACramClient {
                 .buildAndExpand(uriVariables)
                 .toUriString();
 
-        return restTemplate.getForObject(url, MetadataResponse.class);
+        try {
+            return restTemplate.getForObject(url, MetadataResponse.class);
+        } catch (HttpClientErrorException e) {
+            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                System.err.printf("ERROR: id %s not found%n", id);
+                return new MetadataResponse();
+            } else {
+                throw e;
+            }
+        }
     }
 }
