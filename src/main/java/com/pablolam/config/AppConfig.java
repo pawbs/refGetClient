@@ -3,6 +3,7 @@ package com.pablolam.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pablolam.service.ENACramClient;
 import com.pablolam.service.RefGetService;
+import org.apache.commons.cli.HelpFormatter;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,5 +26,9 @@ public class AppConfig {
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
+    }
+    @Bean
+    public HelpFormatter helpFormatter() {
+        return new HelpFormatter();
     }
 }

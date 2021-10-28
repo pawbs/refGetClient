@@ -16,9 +16,11 @@ public class RefGetService {
     @Autowired
     private ENACramClient enaCramClient;
 
+    @Autowired
+    private HelpFormatter helpFormatter;
+
     public void getMetaData(String... args) {
         CommandLineParser parser = new DefaultParser();
-        HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd;
 
         Options options = new Options();
@@ -31,7 +33,7 @@ public class RefGetService {
             System.out.println(objectMapper.writeValueAsString(enaCramClient.getMetadata(cmd.getOptionValue("id"))));
         } catch (ParseException e) {
             System.out.println(e.getMessage());
-            formatter.printHelp("RefGetClient", options);
+            helpFormatter.printHelp("RefGetClient", options);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

@@ -29,11 +29,15 @@ public class ENACramClientTest {
 
     @Test
     public void tc01_givenId_getMetadata_returnsMetadata() {
+        // MOCK
         MetadataResponse metadataResponse = new MetadataResponse();
         Mockito.when(restTemplate.getForObject("https://www.enacramurl.com/sequence/id/metadata", MetadataResponse.class))
                 .thenReturn(metadataResponse);
 
+        // EXECUTION & INPUT
         MetadataResponse actual = fixture.getMetadata("id");
+
+        // OUTPUT
         assertEquals(actual, metadataResponse);
     }
 }
