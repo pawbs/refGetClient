@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.cli.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 public class RefGetService {
 
@@ -19,12 +20,15 @@ public class RefGetService {
     @Autowired
     private HelpFormatter helpFormatter;
 
+    @Value("${id.arg.description}")
+    private String idArgDescription;
+
     public void getMetaData(String... args) {
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd;
 
         Options options = new Options();
-        Option id = new Option(ID_OPT, ID_LONG_OPT, true, "A string specifying an identifier to retrieve metadata for using one of the defined checksum algorithms or a server-specific checksum algorithm.");
+        Option id = new Option(ID_OPT, ID_LONG_OPT, true, idArgDescription);
         id.setRequired(true);
         options.addOption(id);
 
