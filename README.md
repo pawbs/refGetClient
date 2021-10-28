@@ -2,7 +2,7 @@ refGetClient - query all known names for a given identifier as well as fetch any
 
 - [Prerequisites](#prerequisites)
 - [Arguments](#arguments)
-- [Example](#example)
+- [Usage](#usage)
 - [Example Output](#example-output)
 - [Background](#background)
 - [Write-up](#write-up)
@@ -16,6 +16,7 @@ Java 1.8 or higher
                                          server-specific checksum algorithm.`
 
 ## Example
+Download jar from releases and run with java
     java -jar refget-client-1.0-SNAPSHOT.jar --id 3050107579885e1608e6fe50fae3f8d0
 
 ### Example Output
