@@ -26,5 +26,5 @@ This CLI tool is a lightweight client that allows users to query the metadata en
 When running this application, the user must specify an id to lookup in the ENA CRAM archive. The return is a JSON formatted response that contains the md5 checksum, TRUNC55 checksum, length of the reference sequence, and a list of aliases.
 
 # Write-up
-Since the purpose of this repo is for technical assessment, here is a link to a doc containing the questions, as well as other considerations I would have to extend this application
+Since the purpose of this repo is for technical assessment, here is a link to a doc containing the original questions, my answers to those questions, as well as other considerations I would have to extend the functionality of this little application I've built
 https://docs.google.com/document/d/1gp2v_Q8wr1BJUd8deZwkFYJZcZCUIU1CfU3vwoBf6t8/edit#heading=h.eh36jqi60cu7
