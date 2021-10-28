@@ -5,6 +5,7 @@ refGetClient - query all known names for a given identifier as well as fetch any
 - [Example](#example)
 - [Example Output](#example-output)
 - [Background](#background)
+- [Write-up](#write-up)
 
 # Prerequisites
 Java 1.8 or higher
