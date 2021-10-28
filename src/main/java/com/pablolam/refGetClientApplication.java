@@ -1,24 +1,18 @@
 package com.pablolam;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pablolam.service.ENACramClient;
+import com.pablolam.service.RefGetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-import java.io.IOException;
-
 @SpringBootApplication
 public class RefGetClientApplication
         implements CommandLineRunner {
 
     @Autowired
-    private ENACramClient enaCramClient;
-
-    @Autowired
-    private ObjectMapper objectMapper;
+    private RefGetService refGetService;
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(RefGetClientApplication.class)
@@ -29,11 +23,6 @@ public class RefGetClientApplication
 
     @Override
     public void run(String... args) {
-        try {
-            System.out.println(objectMapper.writeValueAsString(enaCramClient.getMetadata("3050107579885e1608e6fe50fae3f8d0")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        refGetService.getMetaData(args);
     }
 }
