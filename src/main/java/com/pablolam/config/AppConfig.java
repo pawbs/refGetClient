@@ -1,7 +1,7 @@
 package com.pablolam.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pablolam.service.RefGetClient;
+import com.pablolam.service.ENACramClient;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,8 +14,8 @@ public class AppConfig {
         return new RestTemplateBuilder().build();
     }
     @Bean
-    public RefGetClient refGetClient() {
-        return new RefGetClient();
+    public ENACramClient refGetClient() {
+        return new ENACramClient();
     }
     @Bean
     public ObjectMapper objectMapper() {

@@ -7,29 +7,30 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
 
 import static org.junit.Assert.assertEquals;
 
-
-public class RefGetClientTest {
+public class ENACramClientTest {
 
     @InjectMocks
-    private RefGetClient fixture;
+    private ENACramClient fixture;
 
     @Mock
     private RestTemplate restTemplate;
 
     @Before
     public void setup() {
-        fixture = new RefGetClient();
-        MockitoAnnotations.initMocks(this);
+        fixture = new ENACramClient();
+        MockitoAnnotations.openMocks(this);
+        ReflectionTestUtils.setField(fixture, "enaCramUrl", "www.enacramurl.com");
     }
 
     @Test
     public void tc01_givenId_getMetadata_returnsMetadata() {
         MetadataResponse metadataResponse = new MetadataResponse();
-        Mockito.when(restTemplate.getForObject("https://www.ebi.ac.uk/ena/cram/sequence/id/metadata", MetadataResponse.class))
+        Mockito.when(restTemplate.getForObject("https://www.enacramurl.com/sequence/id/metadata", MetadataResponse.class))
                 .thenReturn(metadataResponse);
 
         MetadataResponse actual = fixture.getMetadata("id");
